@@ -84,3 +84,6 @@ datos.agregarInicio(num);
 console.log(datos);
 console.log(datos.listar());
 console.log(datos.inverso());
+
+
+
