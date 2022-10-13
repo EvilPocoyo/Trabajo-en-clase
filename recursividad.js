@@ -66,6 +66,29 @@ class Lista{
         }
         return cadena;
     }
+
+    extrarPrimero(){
+        let aux = this.primero;
+        this.primero = this.primero.next
+        return aux;
+    }
+
+    extrarUltimo(){
+        let ultimo = this.ultimo();
+        let aux = this.primero;
+        while(aux.next != ultimo){
+            aux = aux.next;
+        }
+        aux.next = null;
+        return ultimo;
+    }
+
+    ultimo(nodo = this.primero){
+        if(nodo.next){
+            return this.ultimo(nodo.next)
+        }
+        return nodo;
+    }
 }
 
 let datos = new Lista();
@@ -75,15 +98,9 @@ num = new Nodo(8)
 datos.agregar(num);
 num = new Nodo(6)
 datos.agregar(num);
-num = new Nodo(4)
-datos.agregarInicio(num);
-num = new Nodo(100)
-datos.agregarInicio(num);
+
 
 
 console.log(datos);
-console.log(datos.listar());
-console.log(datos.inverso());
-
-
-
+console.log(datos.extrarUltimo())
+console.log(datos.listar())
